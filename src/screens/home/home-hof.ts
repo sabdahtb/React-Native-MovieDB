@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { API_KEY } from '@env'
 
 export const useHoks = () => {
-  const [dummyData, setDummyData] = useState<any>([])
+  const [movieData, setMovieData] = useState<any>([])
   const [pageNumber, setPageNumber] = useState<number>(1)
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export const useHoks = () => {
     )
       .then(response => response.json())
       .then(json => {
-        setDummyData(json.results)
+        setMovieData(json.results)
         console.log(JSON.stringify(json))
       })
       .catch(error => console.error(error))
@@ -27,7 +27,8 @@ export const useHoks = () => {
 
   return {
     datas: {
-      dummyData,
+      movieData,
+      pageNumber,
     },
     methods: {
       handlePageNumber,
