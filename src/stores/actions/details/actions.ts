@@ -1,0 +1,2 @@
+export const SELECT_MOVIE = 'SELECT_MOVIE'
+export const CLEAR_SELECT_MOVIE = 'CLEAR_SELECT_MOVIE'
