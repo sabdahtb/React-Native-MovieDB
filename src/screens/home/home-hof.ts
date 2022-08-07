@@ -35,12 +35,11 @@ export const useHoks = () => {
 
   const handlePrevPageNumber = () => {
     setPageNumber(prev => prev - 1)
-    selectMovie()
-    navigation.navigate('Profile')
   }
 
-  const selectMovie = () => {
-    dispatch(DETAIL_MOVIE.Selectmovies({ id: 12345 }))
+  const selectMovie = (id: number) => {
+    dispatch(DETAIL_MOVIE.Selectmovies({ id: id }))
+    navigation.navigate('MovieDetails')
   }
 
   useEffect(() => {
@@ -53,9 +52,9 @@ export const useHoks = () => {
       pageNumber,
     },
     methods: {
+      selectMovie,
       handlePageNumber,
       handlePrevPageNumber,
-      selectMovie,
     },
   }
 }

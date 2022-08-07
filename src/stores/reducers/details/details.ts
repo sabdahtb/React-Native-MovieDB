@@ -10,8 +10,7 @@ export default (state: ISelectMovie = initialState, action: any) => {
   switch (action.type) {
     case SELECT_MOVIE: {
       return {
-        ...state,
-        id: action.payload,
+        id: action.payload.id,
       }
     }
     case CLEAR_SELECT_MOVIE: {

@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { BottomNavigation } from '../components'
-import { Home, Profile, Chart } from '../screens'
+import { Home, Profile, Chart, MovieDetails } from '../screens'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -30,6 +30,11 @@ const Router = () => {
       <Stack.Screen
         name="MainApp"
         component={MainApp}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="MovieDetails"
+        component={MovieDetails}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
