@@ -42,7 +42,9 @@ const BottomContent = ({
           />
         </TouchableOpacity>
       </View>
-      <Text>{movieDetail.overview}</Text>
+      <Text>
+        {movieDetail.overview ? movieDetail.overview : 'No Overview yet :( '}
+      </Text>
       <View style={styles.ratingContainer}>
         <View>
           <Text>Rating</Text>
@@ -51,8 +53,14 @@ const BottomContent = ({
         <View>
           <Text>Homepage</Text>
           <TouchableOpacity onPress={goToHomepage}>
-            <Text style={StyleSheet.flatten([{ color: '#34B3F1' }])}>
-              {movieDetail.homepage}
+            <Text
+              style={StyleSheet.flatten([
+                {
+                  color: '#34B3F1',
+                  marginRight: movieDetail.homepage ? 0 : '60%',
+                },
+              ])}>
+              {movieDetail.homepage ? movieDetail.homepage : '-'}
             </Text>
           </TouchableOpacity>
         </View>
