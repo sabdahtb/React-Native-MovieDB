@@ -1,20 +1,25 @@
 import { useEffect, useState } from 'react'
-import { API_KEY } from '@env'
+import { MOVIES_API, API_KEY } from '@env'
 import { useDispatch, useSelector } from 'react-redux'
 import { DETAIL_MOVIE } from '../../stores/actions'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ICombineReducer } from '../../constants'
+import { ICombineReducer, IRootStackParamList } from '../../constants'
+import { useNavigation } from '@react-navigation/core'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { NavigationProp } from '@react-navigation/native'
 
 export const useHoks = () => {
   const [movieData, setMovieData] = useState<any>([])
   const [pageNumber, setPageNumber] = useState<number>(1)
   const dispatch = useDispatch()
+  const navigation =
+    useNavigation<NavigationProp<IRootStackParamList, 'Home'>>()
 
   const { DetailMovieReducer } = useSelector((state: ICombineReducer) => state)
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${pageNumber}`,
+      `${MOVIES_API}/movie/popular?api_key=${API_KEY}&language=en-US&page=${pageNumber}`,
     )
       .then(response => response.json())
       .then(json => {
@@ -31,6 +36,7 @@ export const useHoks = () => {
   const handlePrevPageNumber = () => {
     setPageNumber(prev => prev - 1)
     selectMovie()
+    navigation.navigate('Profile')
   }
 
   const selectMovie = () => {
