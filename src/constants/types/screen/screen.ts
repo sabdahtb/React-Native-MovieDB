@@ -2,5 +2,7 @@ export type IRootStackParamList = {
   Home: undefined
   Chart: undefined
   Profile: undefined
-  MovieDetails: undefined
+  MovieDetails: {
+    idMovie?: number
+  }
 }

@@ -39,7 +39,7 @@ export const useHoks = () => {
 
   const selectMovie = (id: number) => {
     dispatch(DETAIL_MOVIE.Selectmovies({ id: id }))
-    navigation.navigate('MovieDetails')
+    navigation.navigate('MovieDetails', { idMovie: id })
   }
 
   useEffect(() => {

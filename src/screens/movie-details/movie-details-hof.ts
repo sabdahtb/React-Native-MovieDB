@@ -1,30 +1,32 @@
-import { useEffect, useState } from 'react'
-import { MOVIES_API, API_KEY } from '@env'
-import { useSelector } from 'react-redux'
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ICombineReducer } from '../../constants'
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Linking } from 'react-native'
+import { MOVIES_API, API_KEY } from '@env'
+import { useEffect, useState } from 'react'
+import { RouteProp, useRoute } from '@react-navigation/native'
+// import { StackNavigationProp } from '@react-navigation/stack'
+
+import { IRootStackParamList } from '../../constants'
 
 export const useHoks = () => {
   const [rating, setRating] = useState<number>(0)
   const [movieDetail, setMovieDetail] = useState<any>({})
   const [likeMovie, setLikeMovie] = useState<boolean>(false)
 
-  const { DetailMovieReducer } = useSelector((state: ICombineReducer) => state)
+  // const navigation =
+  //   useNavigation<StackNavigationProp<IRootStackParamList, 'MovieDetails'>>()
+  const route = useRoute<RouteProp<IRootStackParamList, 'MovieDetails'>>()
 
   useEffect(() => {
     fetch(
-      `${MOVIES_API}/movie/${DetailMovieReducer?.id}?api_key=${API_KEY}&language=en-US`,
+      `${MOVIES_API}/movie/${route?.params?.idMovie}?api_key=${API_KEY}&language=en-US`,
     )
       .then(response => response.json())
       .then(json => {
         setMovieDetail(json)
         setRating(json.vote_average)
-        console.log(JSON.stringify(json))
       })
       .catch(error => console.error(error))
-  }, [DetailMovieReducer?.id])
+  }, [route?.params?.idMovie])
 
   const handleLikes = () => {
     setLikeMovie(!likeMovie)
