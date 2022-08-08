@@ -2,17 +2,17 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { Keyboard, View } from 'react-native'
 
-import TabItem from '../tab-item'
 import styles from './style'
+import TabItem from '../tab-item'
 
 const BottomNavigation = ({
   state,
-  descriptors,
   navigation,
+  descriptors,
 }: {
   state: any
-  descriptors: any
   navigation: any
+  descriptors: any
 }) => {
   const [visible, setVisible] = useState(true)
 
@@ -34,7 +34,7 @@ const BottomNavigation = ({
       {visible && (
         <View style={styles.container}>
           {state.routes.map(
-            (route: { key: string | number; name: any }, index: any) => {
+            (route: { key: string | number; name: string }, index: number) => {
               const { options } = descriptors[route.key]
               const label: string =
                 options.tabBarLabel !== undefined
