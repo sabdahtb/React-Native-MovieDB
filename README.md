@@ -1,17 +1,17 @@
 # REACT NATIVE APP WITH MOVIEDB PUBLIC API
 
 Here i use React Native and TypeScript
-And i use TMDB to get API for Movies
+And i use TMDB for Movies API
 
 ## 🚀 About Me
 
 Hello My name is Sabda Hutabarat \
-I am 21 Years Old \
-I am From Indonesia
+21 Years Old \
+From Indonesia
 
 ## 🛠 Skills
 
-HTML, CSS, JavaScript, ReactJS, react Native, TypeScript stc...
+HTML, CSS, JavaScript, ReactJS, React Native, TypeScript etc...
 
 ## 🔗 Links
 
