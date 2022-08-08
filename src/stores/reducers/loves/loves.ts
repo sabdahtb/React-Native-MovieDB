@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ILoveMoviesReducer } from '../../../constants'
 import { ADD_NEW_LOVES, CLEAR_LOVES } from '../../actions/loves/actions'
 

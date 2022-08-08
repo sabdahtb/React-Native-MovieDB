@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ISelectMovie } from '../../../constants'
 import { CLEAR_SELECT_MOVIE, SELECT_MOVIE } from '../../actions/details/actions'
 

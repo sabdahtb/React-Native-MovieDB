@@ -2,10 +2,8 @@ import { useEffect, useState } from 'react'
 import { MOVIES_API, API_KEY } from '@env'
 import { useDispatch, useSelector } from 'react-redux'
 import { DETAIL_MOVIE } from '../../stores/actions'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ICombineReducer, IRootStackParamList } from '../../constants'
 import { useNavigation } from '@react-navigation/core'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { NavigationProp } from '@react-navigation/native'
 
 export const useHoks = () => {

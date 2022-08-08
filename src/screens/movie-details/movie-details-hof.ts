@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Linking } from 'react-native'
 import { MOVIES_API, API_KEY } from '@env'
 import { useEffect, useState } from 'react'

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ILoveMoviesReducer } from '../../../constants'
 import { ADD_NEW_LOVES } from './actions'
 
