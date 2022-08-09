@@ -4,19 +4,21 @@
  *
  * @format
  */
-import { getDefaultConfig } from 'metro-config'
+const { getDefaultConfig } = require('metro-config')
 const { resolver: defaultResolver } = getDefaultConfig.getDefaultValues()
 
-export const resetCache = true
-export const transformer = {
-  getTransformOptions: async () => ({
-    transform: {
-      experimentalImportSupport: false,
-      inlineRequires: true,
-    },
-  }),
-}
-export const resolver = {
-  ...defaultResolver,
-  sourceExts: [...defaultResolver.sourceExts, 'cjs'],
+module.exports = {
+  resetCache: true,
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: true,
+      },
+    }),
+  },
+  resolver: {
+    ...defaultResolver,
+    sourceExts: [...defaultResolver.sourceExts, 'cjs'],
+  },
 }
