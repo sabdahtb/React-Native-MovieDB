@@ -1,19 +1,14 @@
 import { useEffect, useState } from 'react'
 import { MOVIES_API, API_KEY } from '@env'
-import { useDispatch, useSelector } from 'react-redux'
-import { DETAIL_MOVIE } from '../../stores/actions'
-import { ICombineReducer, IRootStackParamList } from '../../constants'
+import { IRootStackParamList } from '../../constants'
 import { useNavigation } from '@react-navigation/core'
 import { NavigationProp } from '@react-navigation/native'
 
 export const useHoks = () => {
   const [movieData, setMovieData] = useState<any>([])
   const [pageNumber, setPageNumber] = useState<number>(1)
-  const dispatch = useDispatch()
   const navigation =
     useNavigation<NavigationProp<IRootStackParamList, 'Home'>>()
-
-  const { DetailMovieReducer } = useSelector((state: ICombineReducer) => state)
 
   useEffect(() => {
     fetch(
@@ -22,7 +17,6 @@ export const useHoks = () => {
       .then(response => response.json())
       .then(json => {
         setMovieData(json.results)
-        console.log(JSON.stringify(json))
       })
       .catch(error => console.error(error))
   }, [pageNumber])
@@ -36,13 +30,8 @@ export const useHoks = () => {
   }
 
   const selectMovie = (id: number) => {
-    dispatch(DETAIL_MOVIE.Selectmovies({ id: id }))
     navigation.navigate('MovieDetails', { idMovie: id })
   }
-
-  useEffect(() => {
-    console.log(DetailMovieReducer.id)
-  }, [DetailMovieReducer.id])
 
   return {
     datas: {

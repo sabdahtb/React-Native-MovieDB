@@ -1,9 +1,14 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Image, View } from 'react-native'
+import { Images } from '../../../assets'
 
 import styles from '../style'
 const Header = () => {
-  return <Text style={styles.header}>MOVIE DB</Text>
+  return (
+    <View style={styles.header}>
+      <Image source={Images.movie_db_header} style={styles.headerImage} />
+    </View>
+  )
 }
 
 export default Header

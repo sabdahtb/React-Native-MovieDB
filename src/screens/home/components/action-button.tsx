@@ -20,13 +20,13 @@ const ActionButtons = ({
         style={styles.buttonStyles}
         onPress={handlePrevPageNumber}
         disabled={pageNumber === 1}>
-        <Text>PREV PAGE</Text>
+        <Text style={styles.textActionsButton}>{'<'}</Text>
       </TouchableOpacity>
       <View style={styles.pageStyles}>
         <Text style={styles.pageText} children={pageNumber} />
       </View>
       <TouchableOpacity style={styles.buttonStyles} onPress={handlePageNumber}>
-        <Text>NEXT PAGE</Text>
+        <Text style={styles.textActionsButton}>{'>'}</Text>
       </TouchableOpacity>
     </View>
   )

@@ -1,5 +1,12 @@
 import React from 'react'
-import { View, FlatList, Text, Image, TouchableOpacity } from 'react-native'
+import {
+  View,
+  FlatList,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native'
 
 import styles from './style'
 import { useHoks } from './home-hof'
@@ -13,14 +20,14 @@ const Home = () => {
 
   const MovieCard = ({ item }: any) => {
     return (
-      <TouchableOpacity onPress={() => selectMovie(item.id)}>
-        <View style={styles.cardStyle}>
-          <Image
-            source={{
-              uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
-            }}
-            style={styles.cardImage}
-          />
+      <View style={styles.cardStyle}>
+        <Image
+          source={{
+            uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+          }}
+          style={styles.cardImage}
+        />
+        <TouchableOpacity onPress={() => selectMovie(item.id)}>
           <View style={styles.cardTxtContainer}>
             <Text
               style={styles.cardTxt}
@@ -31,23 +38,22 @@ const Home = () => {
               }
             />
           </View>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </View>
     )
   }
 
   return (
     <View style={styles.container}>
       <Header />
-      <View>
+      <View style={StyleSheet.flatten([{ height: '80%', borderRadius: 5 }])}>
         <Text style={styles.movieHeader}>Popular Movies</Text>
         {movieData && (
           <FlatList
             data={movieData}
-            horizontal={true}
             renderItem={MovieCard}
             keyExtractor={item => item.original_title}
-            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
           />
         )}
       </View>
