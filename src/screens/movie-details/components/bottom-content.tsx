@@ -15,7 +15,7 @@ type IBottomContent = {
   rating: number
   movieDetail: any
   likeMovie: boolean
-  handleLikes: () => void
+  handleLikes: (movies: any) => void
   goToHomepage: () => void
 }
 
@@ -32,7 +32,7 @@ const BottomContent = ({
       style={StyleSheet.flatten([{ marginTop: 5, paddingHorizontal: 20 }])}>
       <View style={styles.movieTitle}>
         <Text style={styles.movieTitleText} children={movieDetail.title} />
-        <TouchableOpacity onPress={handleLikes}>
+        <TouchableOpacity onPress={() => handleLikes(movieDetail)}>
           <Image
             source={Icons.chart_icon}
             style={StyleSheet.flatten([
