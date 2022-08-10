@@ -23,6 +23,18 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
   },
+  backButton: {
+    position: 'absolute',
+    top: 5,
+    left: 15,
+    paddingBottom: 20,
+    paddingRight: 20,
+  },
+  backIcon: {
+    tintColor: 'white',
+    resizeMode: 'contain',
+    width: 30,
+  },
 })
 
 export default styles

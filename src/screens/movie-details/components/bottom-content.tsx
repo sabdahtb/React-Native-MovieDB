@@ -32,7 +32,9 @@ const BottomContent = ({
       style={StyleSheet.flatten([{ marginTop: 5, paddingHorizontal: 20 }])}>
       <View style={styles.movieTitle}>
         <Text style={styles.movieTitleText} children={movieDetail.title} />
-        <TouchableOpacity onPress={() => handleLikes(movieDetail)}>
+        <TouchableOpacity
+          disabled={likeMovie}
+          onPress={() => handleLikes(movieDetail)}>
           <Image
             source={Icons.chart_icon}
             style={StyleSheet.flatten([

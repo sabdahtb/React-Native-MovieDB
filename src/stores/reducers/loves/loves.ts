@@ -9,7 +9,9 @@ export default (state: ILoveMoviesReducer = initialState, action: any) => {
       return { loves: [...state.loves, action.payload] }
     }
     case CLEAR_LOVES: {
-      return initialState
+      return {
+        loves: [...state.loves.filter(love => love.id !== action.payload)],
+      }
     }
     default: {
       return state

@@ -1,5 +1,5 @@
 import { ILoveMovies } from '../../../constants'
-import { ADD_NEW_LOVES } from './actions'
+import { ADD_NEW_LOVES, CLEAR_LOVES } from './actions'
 
 const AddNewLoveMovies = (newMovies: ILoveMovies) => {
   return {
@@ -8,4 +8,11 @@ const AddNewLoveMovies = (newMovies: ILoveMovies) => {
   }
 }
 
-export { AddNewLoveMovies }
+const RemoveLoveMovies = (idMovie: number) => {
+  return {
+    type: CLEAR_LOVES,
+    payload: idMovie,
+  }
+}
+
+export { AddNewLoveMovies, RemoveLoveMovies }

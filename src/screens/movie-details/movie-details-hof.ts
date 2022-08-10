@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { MOVIES_API, API_KEY } from '@env'
 import { useEffect, useState } from 'react'
 import { Linking, ToastAndroid } from 'react-native'
-import { RouteProp, useRoute } from '@react-navigation/native'
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native'
 // import { StackNavigationProp } from '@react-navigation/stack'
 
 import { LOVE_MOVE } from '../../stores/actions'
@@ -11,6 +11,7 @@ import {
   ILoveMovies,
   IRootStackParamList,
 } from '../../constants'
+import { StackNavigationProp } from '@react-navigation/stack'
 
 export const useHoks = () => {
   const dispatch = useDispatch()
@@ -20,8 +21,8 @@ export const useHoks = () => {
   const [movieDetail, setMovieDetail] = useState<any>({})
   const [likeMovie, setLikeMovie] = useState<boolean>(false)
 
-  // const navigation =
-  //   useNavigation<StackNavigationProp<IRootStackParamList, 'MovieDetails'>>()
+  const navigation =
+    useNavigation<StackNavigationProp<IRootStackParamList, 'MovieDetails'>>()
   const route = useRoute<RouteProp<IRootStackParamList, 'MovieDetails'>>()
 
   const saveNewLovesMovie = (newMovie: ILoveMovies) => {
@@ -52,9 +53,18 @@ export const useHoks = () => {
     saveNewLovesMovie(newMovie)
   }
 
+  const backToHome = () => {
+    navigation.goBack()
+  }
+
   useEffect(() => {
     console.log('reduxxx', JSON.stringify(MyLoveReducer))
-  }, [MyLoveReducer])
+    MyLoveReducer.loves.map(movie => {
+      if (route?.params?.idMovie === movie.id) {
+        setLikeMovie(true)
+      }
+    })
+  }, [MyLoveReducer, route?.params?.idMovie])
 
   const goToHomepage = () => {
     Linking.openURL(movieDetail?.homepage)
@@ -67,6 +77,7 @@ export const useHoks = () => {
       movieDetail,
     },
     methods: {
+      backToHome,
       handleLikes,
       goToHomepage,
     },

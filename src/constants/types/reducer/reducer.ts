@@ -1,6 +1,6 @@
-import { ISelectMovie, ILoveMovies } from '../'
+import { ISelectMovie, ILoveMoviesReducer } from '../'
 
 export type ICombineReducer = {
   DetailMovieReducer: ISelectMovie
-  MyLoveReducer: ILoveMovies
+  MyLoveReducer: ILoveMoviesReducer
 }
