@@ -3,8 +3,12 @@ import { MOVIES_API, API_KEY } from '@env'
 import { IRootStackParamList } from '../../constants'
 import { useNavigation } from '@react-navigation/core'
 import { NavigationProp } from '@react-navigation/native'
+import { GetContext } from '../../components'
+
+const Context = GetContext()
 
 export const useHoks = () => {
+  const { theme } = Context.UseData()
   const [movieData, setMovieData] = useState<any>([])
   const [pageNumber, setPageNumber] = useState<number>(1)
   const navigation =
@@ -35,6 +39,7 @@ export const useHoks = () => {
 
   return {
     datas: {
+      theme,
       movieData,
       pageNumber,
     },
