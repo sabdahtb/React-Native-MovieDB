@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { MOVIES_API, API_KEY } from '@env'
-import { IRootStackParamList } from '../../constants'
 import { useNavigation } from '@react-navigation/core'
 import { NavigationProp } from '@react-navigation/native'
+import analytics from '@react-native-firebase/analytics'
+
 import { GetContext } from '../../components'
+import { IRootStackParamList } from '../../constants'
 
 const Context = GetContext()
 
@@ -36,6 +38,23 @@ export const useHoks = () => {
   const selectMovie = (id: number) => {
     navigation.navigate('MovieDetails', { idMovie: id })
   }
+
+  const loginFunc = async () => {
+    await analytics()
+      .logLogin({
+        method: 'android',
+      })
+      .then(() => {
+        console.log('Success Login')
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    loginFunc()
+  }, [])
 
   return {
     datas: {

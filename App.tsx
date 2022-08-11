@@ -10,6 +10,7 @@ import { GetContext } from './src/components'
 const App = () => {
   const Context = GetContext()
   const stores = ConfigureStore()
+
   return (
     <Provider store={stores.store}>
       <PersistGate persistor={stores.persistor}>

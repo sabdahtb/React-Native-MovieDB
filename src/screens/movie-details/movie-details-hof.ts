@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { MOVIES_API, API_KEY } from '@env'
 import { useEffect, useState } from 'react'
 import { Linking, ToastAndroid } from 'react-native'
+import analytics from '@react-native-firebase/analytics'
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native'
 // import { StackNavigationProp } from '@react-navigation/stack'
 
@@ -41,7 +42,7 @@ export const useHoks = () => {
       .catch(error => console.error(error))
   }, [route?.params?.idMovie])
 
-  const handleLikes = (movies: any) => {
+  const handleLikes = async (movies: any) => {
     ToastAndroid.show('success add to favorite', ToastAndroid.SHORT)
     let newMovie: ILoveMovies = {
       id: movies.id,
@@ -51,6 +52,14 @@ export const useHoks = () => {
     }
     setLikeMovie(!likeMovie)
     saveNewLovesMovie(newMovie)
+    await analytics()
+      .logEvent('movies', {
+        title: movies.title,
+      })
+      .then(() => {
+        console.log('soccess logEvent')
+      })
+      .catch(error => console.log(error))
   }
 
   const backToHome = () => {
