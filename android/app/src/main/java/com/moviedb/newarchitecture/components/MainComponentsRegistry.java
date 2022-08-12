@@ -1,4 +1,4 @@
-package com.sabdahtb.moviedb.newarchitecture.components;
+package com.moviedb.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

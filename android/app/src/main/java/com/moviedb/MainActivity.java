@@ -1,4 +1,4 @@
-package com.sabdahtb.moviedb;
+package com.moviedb;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

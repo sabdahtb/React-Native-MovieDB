@@ -1,9 +1,4 @@
 {
   "name": "moviedb",
-  "displayName": "moviedb",
-  "android": {
-    "googleServicesFile": "./android/app/google-services.json",
-    "package": "com.sabdahtb.moviedb"
-  },
-  "plugins": ["@react-native-firebase/app"]
+  "displayName": "moviedb"
 }
