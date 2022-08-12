@@ -42,7 +42,7 @@ export const useHoks = () => {
       .catch(error => console.error(error))
   }, [route?.params?.idMovie])
 
-  const handleLikes = async (movies: any) => {
+  const handleLikes = (movies: any) => {
     ToastAndroid.show('success add to favorite', ToastAndroid.SHORT)
     let newMovie: ILoveMovies = {
       id: movies.id,
@@ -52,21 +52,23 @@ export const useHoks = () => {
     }
     setLikeMovie(!likeMovie)
     saveNewLovesMovie(newMovie)
-    await analytics()
-      .logEvent('movies', {
-        title: movies.title,
-      })
-      .then(() => {
-        console.log('soccess logEvent')
-      })
-      .catch(error => console.log(error))
   }
 
   const backToHome = () => {
     navigation.goBack()
   }
 
+  const openHalaman = async () => {
+    await analytics()
+      .logEvent('movies')
+      .then(() => {
+        console.log('soccess logEvent')
+      })
+      .catch(error => console.log(error))
+  }
+
   useEffect(() => {
+    openHalaman()
     console.log('reduxxx', JSON.stringify(MyLoveReducer))
     MyLoveReducer.loves.map(movie => {
       if (route?.params?.idMovie === movie.id) {

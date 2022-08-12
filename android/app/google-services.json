@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "648570951454",
+    "project_id": "sabdamoviedb",
+    "storage_bucket": "sabdamoviedb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648570951454:android:b249d52f45620ecf761b0f",
+        "android_client_info": {
+          "package_name": "com.moviedb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648570951454-r9ctlahm74fnd58ql4al2mgaattkdpm8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqZduVQ0sH8d1segEra4itZrja8JI8vMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648570951454-r9ctlahm74fnd58ql4al2mgaattkdpm8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
